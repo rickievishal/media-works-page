@@ -4,14 +4,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        blue: {
-          swiss: '#063bd1',
-          deep: '#061c68',
-          ink: '#07185f',
+        neutral: {
+          50: '#FAFAFA',
+          100: '#F5F5F5',
+          200: '#E5E5E5',
+          300: '#D4D4D4',
+          400: '#A3A3A3',
+          500: '#737373',
+          600: '#525252',
+          700: '#404040',
+          800: '#262626',
+          900: '#171717',
+          950: '#121212',
         },
-        paper: '#f8f8f3',
-        acid: '#9cff00',
-        blackish: '#0b0d10',
       },
       fontFamily: {
         sans: [
@@ -26,19 +31,19 @@ module.exports = {
         ],
       },
       keyframes: {
-        cinematicIn: {
-          from: { opacity: '0', transform: 'translate3d(0, 24px, 0)' },
-          to: { opacity: '1', transform: 'translate3d(0, 0, 0)' },
+        fadeInUp: {
+          from: { opacity: '0', transform: 'translateY(24px)' },
+          to: { opacity: '1', transform: 'translateY(0)' },
         },
       },
       animation: {
-        cinematic: 'cinematicIn 420ms cubic-bezier(0.22, 1, 0.36, 1) both',
+        'fade-in-up': 'fadeInUp 500ms cubic-bezier(0.22, 1, 0.36, 1) both',
       },
       transitionTimingFunction: {
-        swiss: 'cubic-bezier(0.22, 1, 0.36, 1)',
+        smooth: 'cubic-bezier(0.22, 1, 0.36, 1)',
       },
       maxWidth: {
-        swiss: '1440px',
+        container: '1280px',
       },
     },
   },

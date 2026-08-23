@@ -2,13 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    @apply m-0 overflow-x-hidden bg-paper font-sans text-blue-ink antialiased;
+    @apply m-0 overflow-x-hidden bg-neutral-100 font-sans text-neutral-900 antialiased;
     text-rendering: geometricPrecision;
   }
 
@@ -25,12 +27,22 @@
 
 @layer components {
   .link-underline {
-    @apply relative w-max after:absolute after:inset-x-0 after:-bottom-1 after:h-px after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-200 after:ease-swiss after:content-[''];
+    @apply relative w-max after:absolute after:inset-x-0 after:-bottom-1 after:h-px after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-200 after:ease-smooth after:content-[''];
   }
 
   .link-underline:hover,
   .link-underline:focus-visible {
     @apply after:scale-x-100;
+  }
+
+  /* Form focus rings */
+  .form-input {
+    @apply w-full border border-neutral-300 bg-white px-4 py-3 text-sm text-neutral-900 placeholder-neutral-400 transition-all duration-200 ease-smooth;
+    @apply focus:border-neutral-900 focus:outline-none focus:ring-1 focus:ring-neutral-900;
+  }
+
+  .form-input:hover {
+    @apply border-neutral-400;
   }
 }
 

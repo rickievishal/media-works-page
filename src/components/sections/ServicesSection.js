@@ -1,47 +1,85 @@
 import { motion } from 'framer-motion';
 import { services } from '../../data/content';
 import { staggerContainer, fadeInUp, viewportOnce } from '../../lib/motion';
-import { grid, sectionTitle } from '../../lib/styles';
+import { container } from '../../lib/styles';
 import SectionLabel from '../ui/SectionLabel';
 import Reveal from '../ui/Reveal';
 
 function ServicesSection() {
   return (
-    <section className={`${grid} py-16 md:py-24 lg:py-40`} id="services" aria-labelledby="services-title">
-      <div className="col-span-4 md:col-span-5">
-        <Reveal as="div">
-          <SectionLabel>Selected capabilities</SectionLabel>
-        </Reveal>
-        <Reveal as="h2" id="services-title" delay={0.08} className={sectionTitle}>
-          What we do
-        </Reveal>
-      </div>
-
-      <motion.div
-        className="col-span-4 mt-14 grid grid-cols-4 gap-x-4 md:col-span-8 md:mt-20 md:grid-cols-8 md:gap-x-6 lg:col-span-12 lg:mt-24 lg:grid-cols-12 lg:gap-x-10"
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewportOnce}
-        variants={staggerContainer(0.08, 0.12)}
-      >
-        {services.map((service) => (
-          <motion.article
-            key={service.title}
-            variants={fadeInUp()}
-            className="col-span-4 grid min-h-0 cursor-pointer grid-cols-[52px_minmax(0,1fr)] gap-4 border-t-2 border-blue-swiss py-6 pb-10 text-blue-ink transition-[transform,box-shadow,border-color] duration-200 ease-swiss hover:-translate-y-2 hover:scale-[1.01] hover:border-acid hover:shadow-[0_18px_0_-16px_#9cff00] md:col-span-8 md:grid-cols-[64px_minmax(0,1fr)] md:gap-6 lg:col-span-4 lg:min-h-[304px]"
-            whileHover={{ y: -8, scale: 1.01 }}
-            transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+    <section
+      className="py-20 md:py-28 lg:py-36"
+      id="services"
+      aria-labelledby="services-title"
+    >
+      <div className={container}>
+        {/* Header row */}
+        <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+          <div className="flex-shrink-0">
+            <Reveal as="div">
+              <SectionLabel>What we do</SectionLabel>
+            </Reveal>
+            <Reveal
+              as="h2"
+              id="services-title"
+              delay={0.08}
+              className="mt-4 text-3xl font-bold leading-tight tracking-tight text-neutral-900 md:text-4xl lg:text-5xl"
+            >
+              Our Services
+            </Reveal>
+          </div>
+          <Reveal
+            as="p"
+            delay={0.12}
+            className="max-w-md text-base leading-relaxed text-neutral-500 md:text-right"
           >
-            <span className="text-[clamp(2.4rem,4vw,4.8rem)] font-black leading-[0.86] text-blue-swiss">{service.number}</span>
-            <div>
-              <h3 className="max-w-[8ch] text-[clamp(2.25rem,11vw,4rem)] font-black uppercase leading-[0.88] tracking-normal md:text-[clamp(2.35rem,4.4vw,5.25rem)]">
-                {service.title}
-              </h3>
-              <p className="mt-6 max-w-[27ch] text-[0.98rem] font-bold leading-[1.36] text-blue-ink/60">{service.text}</p>
-            </div>
-          </motion.article>
-        ))}
-      </motion.div>
+            We don't just build websites; we engineer digital tools designed to
+            drive results. Our focused approach ensures every pixel serves a
+            purpose.
+          </Reveal>
+        </div>
+
+        {/* Services grid */}
+        <motion.div
+          className="mt-14 grid grid-cols-1 gap-px bg-neutral-200 md:mt-20 md:grid-cols-2"
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={staggerContainer(0.08, 0.12)}
+        >
+          {services.map((service) => (
+            <motion.article
+              key={service.title}
+              variants={fadeInUp()}
+              className="group cursor-pointer bg-neutral-100 p-8 transition-colors duration-300 hover:bg-white md:p-10"
+            >
+              <div className="flex items-start justify-between">
+                <h3 className="text-xl font-bold text-neutral-900 md:text-2xl">
+                  {service.title}
+                </h3>
+                {/* Arrow icon */}
+                <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-neutral-300 text-neutral-400 transition-all duration-300 group-hover:border-neutral-900 group-hover:bg-neutral-900 group-hover:text-white">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M1 13L13 1M13 1H3M13 1V11" />
+                  </svg>
+                </span>
+              </div>
+              <p className="mt-4 max-w-sm text-sm leading-relaxed text-neutral-500">
+                {service.text}
+              </p>
+            </motion.article>
+          ))}
+        </motion.div>
+      </div>
     </section>
   );
 }

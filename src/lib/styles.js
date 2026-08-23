@@ -1,10 +1,15 @@
-export const grid =
-  'mx-auto grid w-full max-w-swiss grid-cols-4 gap-x-4 px-4 md:grid-cols-8 md:gap-x-6 md:px-8 lg:grid-cols-12 lg:gap-x-10 lg:px-10';
+// Standard container wrapper used across all sections
+export const container =
+  'mx-auto w-full max-w-container px-6 md:px-12 lg:px-20';
 
-export const eyebrow = 'm-0 text-xs font-black uppercase leading-tight text-blue-swiss';
-
+// Section heading — large, bold, dark
 export const sectionTitle =
-  'mt-4 text-[clamp(3rem,15vw,5.7rem)] font-black uppercase leading-[0.86] tracking-normal md:text-[clamp(3.6rem,8vw,9rem)]';
+  'text-3xl font-bold leading-tight tracking-tight text-neutral-900 md:text-4xl lg:text-5xl';
 
-export const footerLinkColumn =
-  'grid content-start gap-2 text-[0.84rem] font-extrabold uppercase leading-[1.08]';
+// Section description — body text, muted
+export const sectionDescription =
+  'text-base leading-relaxed text-neutral-500 md:text-lg';
+
+// Small uppercase label/eyebrow
+export const eyebrow =
+  'm-0 text-sm font-semibold uppercase tracking-wider text-neutral-900';
