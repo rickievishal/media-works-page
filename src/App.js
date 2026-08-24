@@ -1,23 +1,21 @@
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import HeroSection from './components/sections/HeroSection';
+import ManifestoSection from './components/sections/ManifestoSection';
 import ServicesSection from './components/sections/ServicesSection';
-import SelectedWorkSection from './components/sections/SelectedWorkSection';
-import HowWeWorkSection from './components/sections/HowWeWorkSection';
-import AboutSection from './components/sections/AboutSection';
-import ContactSection from './components/sections/ContactSection';
+import PrinciplesSection from './components/sections/PrinciplesSection';
+import AppointmentSection from './components/sections/AppointmentSection';
 
 function App() {
   return (
     <div className="min-h-screen overflow-x-clip">
       <Header />
-      <main>
+      <main id="top">
         <HeroSection />
+        <ManifestoSection />
         <ServicesSection />
-        <SelectedWorkSection />
-        <HowWeWorkSection />
-        <AboutSection />
-        <ContactSection />
+        <PrinciplesSection />
+        <AppointmentSection />
       </main>
       <Footer />
     </div>
