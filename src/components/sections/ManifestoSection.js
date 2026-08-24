@@ -16,7 +16,7 @@ function ManifestoSection() {
         delay={0.08}
         className="col-span-4 mt-6 text-[clamp(3rem,15vw,5.7rem)] font-black uppercase leading-[0.92] tracking-normal md:col-span-6 md:mt-0 md:text-[clamp(2.2rem,5vw,6.5rem)] lg:col-span-7"
       >
-        Web work with a point of view, built on grid, rhythm, and restraint.
+       Your Business is one step away from becoming viral.
       </Reveal>
       <Reveal delay={0.16} className="col-span-4 mt-8 md:col-span-3 md:col-start-3 lg:col-span-2 lg:col-start-11">
         <Button

@@ -8,7 +8,7 @@ import AppointmentSection from './components/sections/AppointmentSection';
 
 function App() {
   return (
-    <div className="min-h-screen overflow-x-clip">
+    <div className="w-screen min-h-screen overflow-x-clip">
       <Header />
       <main id="top">
         <HeroSection />

@@ -5,7 +5,9 @@ import TextLink from '../ui/TextLink';
 import SectionLabel from '../ui/SectionLabel';
 import Reveal from '../ui/Reveal';
 import { grid } from '../../lib/styles';
-
+import video from "../../assets/videos/hero.mp4"
+import hero_img from "../../assets/images/hero-bg.png"
+import crazy from "../../assets/images/crazy.png"
 function HeroSection() {
   const shouldReduceMotion = useReducedMotion();
   const [isMobile, setIsMobile] = useState(() => {
@@ -38,56 +40,24 @@ function HeroSection() {
 
   return (
     <section
-      className={`${grid} relative min-h-[calc(100vh-40px)] py-16 before:hidden before:absolute before:bottom-0 before:left-10 before:top-0 before:w-px before:bg-blue-ink/20 before:content-[''] md:py-20 lg:py-36 lg:before:block`}
+      className={`relative min-h-[calc(70vh-40px)] md:min-h-[calc(100vh-40px)] py-4 `}
       aria-labelledby="hero-title"
     >
-      <div className="col-span-4 md:col-span-8 lg:col-span-9">
-        <Reveal as="div">
-          <SectionLabel>Digital design studio / Chennai + Remote</SectionLabel>
-        </Reveal>
-        <h1
-          id="hero-title"
-          className="mt-4 grid text-[clamp(4.2rem,22vw,7rem)] font-black uppercase leading-[0.78] tracking-normal text-blue-swiss md:text-[clamp(5.6rem,14vw,14.5rem)]"
-          aria-label="Media Works"
-        >
-          <motion.span style={{ y: mediaY }} className="block w-max">
-            Media
-          </motion.span>
-          <motion.span style={{ y: worksY }} className="ml-8 block w-max text-blue-ink md:ml-14 lg:ml-36">
-            Works
-          </motion.span>
-        </h1>
+      <div className="z-0 absolute bottom-0 left-0 w-full h-[30vh] md:h-[40vh] bg-black overflow-hidden">
+          <img className='w-full h-full object-cover' src={hero_img}/>
       </div>
-
-      <motion.div
-        style={{ y: metaY }}
-        className="col-span-4 mt-8 self-end md:col-span-8 md:max-w-xl lg:col-span-4 lg:col-start-8 lg:mt-20"
-      >
-        <Reveal
-          as="p"
-          delay={0.09}
-          className="max-w-[34ch] text-[clamp(1.1rem,1.8vw,1.48rem)] font-bold leading-[1.08] text-blue-ink"
-        >
-          We build exacting web identities for teams that need clarity, pace, and a memorable digital point of view.
-        </Reveal>
-        <Reveal
-          delay={0.18}
-          className="mt-6 flex flex-col items-start gap-5 md:flex-row md:items-center md:gap-6"
-        >
-          <Button href="#appointment">book now</Button>
-          <TextLink href="#services">view services</TextLink>
-        </Reveal>
-      </motion.div>
-
-      <Reveal
-        delay={0.27}
-        className="col-span-4 mt-16 grid max-w-xs grid-cols-[56px_1fr] gap-x-4 gap-y-2 self-end text-xs font-black uppercase leading-none text-blue-ink/60 md:col-span-4 lg:col-span-3"
-      >
-        <span className="row-span-3 text-5xl leading-[0.86] text-blue-swiss">01</span>
-        <span>strategy</span>
-        <span>identity</span>
-        <span>systems</span>
-      </Reveal>
+     <div className='z-10 absolute w-full h-full flex flex-col justify-start md:justify-center items-center pt-8'>
+      <div className='flex  flex-col justify-center items-center pb-4'>
+        <h1 className="text-4xl font-bold tracking-tighter flex items-center">We Build <span><img className="max-w-[100px]" src={crazy}/></span> websites!</h1>
+        <p className="py-4">
+          The one stop for making your business goo prrrrr...
+        </p>
+        <Button className="min-w-30 gap-4 justify-self-start lg:justify-self-end" >Build Now <span aria-hidden="true">→</span></Button>
+      </div>
+      <div className="w-[calc(80vw)] md:max-w-[800px] border-black border-2 rounded-lg overflow-hidden shadow-[7px_08px_0px_rgba(0,0,0,0.8)]">
+          <video className="w-full h-full object-cover " muted autoPlay loop src={video}/>
+      </div>
+     </div>
     </section>
   );
 }

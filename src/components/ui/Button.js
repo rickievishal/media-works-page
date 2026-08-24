@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 
 const baseClassName =
-  'inline-flex min-h-10 min-w-[152px] items-center justify-center border border-blue-swiss bg-acid px-6 text-[0.82rem] font-black uppercase leading-none text-blue-deep shadow-[0_8px_18px_rgba(6,28,104,0)] transition-[box-shadow,border-color] duration-200 ease-swiss';
+  'inline-flex min-h-10 min-w-[132px] items-center justify-center border border-blue-swiss bg-acid px-6 text-[0.82rem] font-black  leading-none text-blue-deep shadow-[0_8px_18px_rgba(6,28,104,0)] transition-[box-shadow,border-color] duration-200 ease-swiss hover:cursor-pointer';
 
 function Button({ href, children, className = '', ...props }) {
   return (
