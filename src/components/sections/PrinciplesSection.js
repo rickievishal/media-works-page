@@ -4,10 +4,10 @@ import Reveal from '../ui/Reveal';
 
 function PrinciplesSection() {
   const sectionRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'end start'],
-  });
+  // const { scrollYProgress } = useScroll({
+  //   target: sectionRef,
+  //   offset: ['start end', 'end start'],
+  // });
 
   // const leftY = useTransform(scrollYProgress, [0, 1], [28, -12]);
   // const rightY = useTransform(scrollYProgress, [0, 1], [12, -28]);
