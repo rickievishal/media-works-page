@@ -1,55 +1,71 @@
-import { motion } from 'framer-motion';
-import { fadeInUp, staggerContainer, viewportOnce } from '../../lib/motion';
-import { grid, sectionTitle } from '../../lib/styles';
-import SectionLabel from '../ui/SectionLabel';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Reveal from '../ui/Reveal';
 
-const principles = [
-  {
-    title: '08px',
-    text: 'Baseline spacing keeps rhythm consistent from hero type to the smallest action.',
-  },
-  {
-    title: '12 col',
-    text: 'A strict column grid creates strong alignments and purposeful asymmetry.',
-  },
-  {
-    title: '<30px',
-    text: 'Parallax stays quiet, adding depth without pulling focus from the typography.',
-  },
-];
-
 function PrinciplesSection() {
-  return (
-    <section className={`${grid} border-y border-y-blue-ink/20 py-16 lg:border-b-blackish lg:py-24`} aria-labelledby="proof-title">
-      <Reveal as="div" className="col-span-4 md:col-span-8 lg:col-span-3">
-        <SectionLabel>Operating principles</SectionLabel>
-      </Reveal>
-      <Reveal
-        as="h2"
-        id="proof-title"
-        delay={0.08}
-        className={`col-span-4 mt-6 max-w-[11ch] md:col-span-8 lg:col-span-9 lg:col-start-4 lg:mt-0 ${sectionTitle}`}
-      >
-        Less decoration. More signal. Motion only when it sharpens attention.
-      </Reveal>
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
 
-      <motion.div
-        className="col-span-4 mt-16 grid grid-cols-1 gap-10 md:col-span-8 lg:col-span-9 lg:col-start-4 lg:grid-cols-3"
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewportOnce}
-        variants={staggerContainer(0.07, 0.13)}
-      >
-        {principles.map((principle) => (
-          <motion.div key={principle.title} variants={fadeInUp()} className="border-t border-blue-swiss pt-4">
-            <span className="text-[clamp(1.8rem,3vw,3.4rem)] font-black uppercase leading-[0.9] text-blue-swiss">
-              {principle.title}
-            </span>
-            <p className="mt-5 text-[0.94rem] font-bold leading-[1.38] text-blue-ink/60">{principle.text}</p>
+  const leftY = useTransform(scrollYProgress, [0, 1], [28, -12]);
+  const rightY = useTransform(scrollYProgress, [0, 1], [12, -28]);
+
+  return (
+    <section ref={sectionRef} className="bg-[#eef2ff] py-20 md:py-24 lg:py-32">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 md:px-8 lg:px-10">
+        <Reveal
+          as="p"
+          className="m-0 text-xs font-black uppercase leading-none tracking-[0.12em] text-blue-swiss"
+        >
+          What changes when it clicks
+        </Reveal>
+
+        <div className="grid gap-6 md:grid-cols-2 ">
+          <motion.div
+            style={{ y: 0 }}
+            className="rounded-[34px] bg-blue-swiss px-6 py-8 text-white shadow-[0_22px_60px_rgba(7,24,95,0.12)] md:px-8 md:py-10"
+          >
+            <Reveal
+              as="h2"
+              delay={0.08}
+              className="max-w-[11ch] text-[clamp(2rem,5vw,3.8rem)] font-semibold leading-[0.96] tracking-[-0.04em]"
+            >
+              Better presence creates better attention.
+            </Reveal>
+            <Reveal
+              as="p"
+              delay={0.14}
+              className="mt-6 max-w-[34ch] text-[1rem] font-medium leading-[1.72] text-white/76"
+            >
+              People trust faster when the website looks intentional, the social presence looks alive, and the brand feels like someone is actually steering it.
+            </Reveal>
           </motion.div>
-        ))}
-      </motion.div>
+
+          <motion.div
+            style={{ y: 0 }}
+            className="rounded-[34px] border border-blue-swiss/12 bg-paper px-6 py-8 text-blue-ink shadow-[0_18px_40px_rgba(7,24,95,0.08)] md:px-8 md:py-10"
+          >
+            <Reveal
+              as="p"
+              delay={0.12}
+              className="text-[0.8rem] font-black uppercase tracking-[0.12em] text-blue-swiss/48"
+            >
+              In practice
+            </Reveal>
+            <Reveal
+              as="ul"
+              delay={0.18}
+              className="mt-6 space-y-4 text-[0.98rem] font-medium leading-[1.65] text-blue-ink/68"
+            >
+              <li>People get what you do faster</li>
+              <li>The business looks more established</li>
+              <li>Your online presence stops feeling like an afterthought</li>
+            </Reveal>
+          </motion.div>
+        </div>
+      </div>
     </section>
   );
 }

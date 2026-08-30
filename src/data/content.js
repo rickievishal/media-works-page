@@ -1,18 +1,42 @@
 export const services = [
   {
-    title: 'Tailored sites',
-    text: 'Editorial web systems shaped around launches, service clarity, and high-intent conversion paths.',
+    title: 'Websites that feel like the business',
+    text: 'Not just cleaner screens. Clearer messaging, better structure, stronger first impressions, and a site people actually want to explore.',
     number: '01',
   },
   {
-    title: 'Brand identity',
-    text: 'Visual language, positioning, and digital art direction built to make the first glance precise.',
+    title: 'Identity people can recognise quickly',
+    text: 'Voice, visuals, and digital personality that make a business feel intentional instead of assembled from random internet pieces.',
     number: '02',
   },
   {
-    title: 'Social pages',
-    text: 'Campaign-ready social systems with sharp storytelling and measurable weekly momentum.',
+    title: 'Content that keeps the brand alive',
+    text: 'Social presence, launch moments, and ongoing creative direction so the brand still looks sharp after the website goes live.',
     number: '03',
+  },
+];
+
+export const presenceLayers = [
+  'website',
+  'social presence',
+  'identity',
+  'attention',
+  'trust',
+  'growth',
+];
+
+export const emphasisPoints = [
+  {
+    label: 'Seen fast',
+    text: 'People should understand what you do before they start guessing.',
+  },
+  {
+    label: 'Remembered later',
+    text: 'The brand should leave a shape in their head, not just a URL in a tab.',
+  },
+  {
+    label: 'Trusted sooner',
+    text: 'Good digital presence makes the business feel real before the first call even happens.',
   },
 ];
 

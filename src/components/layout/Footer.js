@@ -1,6 +1,6 @@
 import { footerLinks } from '../../data/content';
-import { footerLinkColumn, grid } from '../../lib/styles';
-
+import { footerLinkColumn } from '../../lib/styles';
+import logo from "../../assets/images/logo.png"
 function LinkColumn({ className = '' }) {
   return (
     <div className={`${footerLinkColumn} ${className}`.trim()}>
@@ -15,12 +15,22 @@ function LinkColumn({ className = '' }) {
 
 function Footer() {
   return (
-    <footer className={`${grid} min-h-96 bg-blue-swiss py-16 text-white md:py-18`} id="contact">
-      <p className="col-span-4 mb-14 max-w-[11ch] text-[clamp(3rem,15vw,5.7rem)] font-black uppercase leading-[0.84] tracking-normal md:col-span-8 lg:col-span-6 lg:mb-0 lg:text-[clamp(3.2rem,8vw,9rem)]">
-        design that speaks for your business
-      </p>
-      <LinkColumn className="col-span-4 md:col-span-3 lg:col-span-2 lg:col-start-9" />
-      <LinkColumn className="col-span-4 mt-6 md:col-span-3 md:mt-0 lg:col-span-2 lg:col-start-11" />
+    <footer className="bg-blue-swiss py-16 text-white md:py-18" id="contact">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 md:px-8 lg:flex-row lg:items-start lg:justify-between lg:px-10">
+       <div className='flex flex-col'>
+        <div className="relative w-[100px] h-[100px] rounded-lg overflow-hidden border-[1px] border-[rgb(255,255,255,0.2)]">
+          <img src={logo} alt="Logo" />
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-50 to-transparent opacity-80" />
+        </div>
+         <p className="max-w-[16ch] mt-4 text-[clamp(1.8rem,6vw,3rem)] font-semibold leading-[1.02] tracking-[-0.02em]">
+            We build crazy <br/> stuffs
+        </p>
+       </div>
+        <div className="flex gap-10 md:gap-16">
+          <LinkColumn />
+          <LinkColumn />
+        </div>
+      </div>
     </footer>
   );
 }
