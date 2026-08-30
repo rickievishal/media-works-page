@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { emphasisPoints, presenceLayers } from '../../data/content';
+import { emphasisPoints } from '../../data/content';
 import Reveal from '../ui/Reveal';
 
 function ManifestoSection() {
