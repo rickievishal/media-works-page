@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { motion, useScroll,} from 'framer-motion';
+import { motion,} from 'framer-motion';
 import Reveal from '../ui/Reveal';
 
 function PrinciplesSection() {
