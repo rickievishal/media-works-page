@@ -10,7 +10,7 @@ function ManifestoSection() {
     offset: ['start end', 'end start'],
   });
 
-  const layerY = useTransform(scrollYProgress, [0, 1], [32, -32]);
+  // const layerY = useTransform(scrollYProgress, [0, 1], [32, -32]);
   const cardY = useTransform(scrollYProgress, [0, 1], [18, -18]);
 
   return (

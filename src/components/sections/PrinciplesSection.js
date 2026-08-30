@@ -9,8 +9,8 @@ function PrinciplesSection() {
     offset: ['start end', 'end start'],
   });
 
-  const leftY = useTransform(scrollYProgress, [0, 1], [28, -12]);
-  const rightY = useTransform(scrollYProgress, [0, 1], [12, -28]);
+  // const leftY = useTransform(scrollYProgress, [0, 1], [28, -12]);
+  // const rightY = useTransform(scrollYProgress, [0, 1], [12, -28]);
 
   return (
     <section ref={sectionRef} className="bg-[#eef2ff] py-20 md:py-24 lg:py-32">
